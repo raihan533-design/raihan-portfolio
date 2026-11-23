@@ -156,10 +156,9 @@ export default function AdminPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    const validPassword =
-      process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "517813"
+    const validPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD
 
-    if (passwordInput === validPassword || passwordInput === "517813") {
+    if (validPassword && passwordInput === validPassword) {
       setIsAuthenticated(true)
       sessionStorage.setItem("raihan_admin_auth", "true")
       setAuthError("")
@@ -1506,7 +1505,7 @@ export default function AdminPage() {
               <pre className="p-4 rounded-xl bg-black/60 border border-white/10 text-neutral-300 font-mono text-[11px] overflow-x-auto">
 {`NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
-NEXT_PUBLIC_ADMIN_PASSWORD=517813`}
+NEXT_PUBLIC_ADMIN_PASSWORD=your_secure_password`}
               </pre>
             </div>
 
